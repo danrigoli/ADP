@@ -15,7 +15,6 @@ class CreateVariationsTable extends Migration
     {
         Schema::create('variations', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('plate_id');
             $table->string('name');
             $table->integer('addon')->nullable();
             $table->timestamps();

@@ -1,4 +1,5 @@
 <?php
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,3 +20,5 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/wunderman', 'WundermanController@index')->name('wunderman')->middleware('auth');
+Route::post('/order', 'WundermanController@order')->name('make-order')->middleware('auth');
+Route::get('/administrador', 'WundermanController@admin')->name('dashboard-admin');

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePlatesTable extends Migration
+class CreatePlateVariationTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class CreatePlatesTable extends Migration
      */
     public function up()
     {
-        Schema::create('plates', function (Blueprint $table) {
+        Schema::create('plate_variation', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name');
-            $table->string('img');
+            $table->integer('plate_id');
+            $table->integer('variation_id');
             $table->timestamps();
         });
     }
@@ -28,6 +28,6 @@ class CreatePlatesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('plates');
+        Schema::dropIfExists('plate_variation');
     }
 }
