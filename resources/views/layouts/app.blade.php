@@ -27,7 +27,7 @@
       <div class="collapse navbar-collapse" id="navbarText">
         <ul class="navbar-nav ml-md-auto d-md-flex">
           <li class="nav-item">
-          <a class="nav-link" href="{{route('wunderman')}}">Menu
+          <a class="nav-link" href="{{route('peisa')}}">Menu
               <span class="sr-only">(current)</span>
             </a>
           </li>
@@ -42,9 +42,6 @@
           <li class="nav-item">
             <a class="nav-link" href="{{route('login')}}">Login</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{{route('register')}}">Registrarse</a>
-          </li> 
           @endif
         </ul>
       </div>

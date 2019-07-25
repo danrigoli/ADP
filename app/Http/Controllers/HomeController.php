@@ -24,7 +24,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-       $plates = Plate::all();
-        return view('wunderman')->with('plates', $plates);
+        return view('welcome');
     }
 }

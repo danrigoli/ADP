@@ -17,6 +17,9 @@ class Order extends Model
     }
 
     protected $fillable =[
-        'plate_id', 'variation', 'user_id', 'time', 'location'
+        'plate_id', 'variation', 'user_id', 'time', 'observation', 'upgrade' 
     ];
+
+    public $timestamps = true;
+
 }

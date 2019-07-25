@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>Almacen de Pizzas</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
@@ -68,24 +68,31 @@
             @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
-                        <a href="{{ url('/home') }}">Home</a>
                     @else
                         <a href="{{ route('login') }}">Login</a>
 
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif
                     @endauth
                 </div>
             @endif
 
             <div class="content">
                 <div class="title m-b-md" style="font-size:3.2em;">
-                    ADP x WUNDERMAN
+                    ADP x PEISA
                 </div>
 
                 <div class="links">
-                <a href="{{route('wunderman')}}">Hacer una orden</a>
+                    @if (Auth::User() && Auth::User()->role >= 5)
+                    <a href="{{route('generate-ticket')}}">Generar Ticket Virtual</a>
+                    @endif
+                    @if (Auth::User() && Auth::User()->role == 7)
+                    <a href="{{route('dashboard-admin')}}">Administrar</a>
+                    @endif
+                    @if (Auth::User() && Auth::User()->order_id != null)
+                    <a href="{{route('peisa')}}">Tu orden ya fue subida!</a>
+                    @else
+                <a href="{{route('peisa')}}">Hacer una orden</a>
+                @endif
+
                 </div>
             </div>
         </div>

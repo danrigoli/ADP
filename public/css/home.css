@@ -61,3 +61,8 @@ h1,h2,h3,h4,h5,h6 {font-family: Roboto;font-weight: 200;}
 	right: -10px;
 }
 
+.plate-img{
+	width:100%;
+	margin-bottom: 10px;
+}
+

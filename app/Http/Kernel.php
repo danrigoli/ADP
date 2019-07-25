@@ -51,6 +51,7 @@ class Kernel extends HttpKernel
      * @var array
      */
     protected $routeMiddleware = [
+        'peisa.admin' => \App\Http\Middleware\PeisaAdmin::class,
         'admin' => \App\Http\Middleware\AdminCheck::class,
         'auth' => \App\Http\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
@@ -64,7 +65,7 @@ class Kernel extends HttpKernel
     ];
 
     /**
-     * The priority-sorted list of middleware.
+     * The priority-sorted list users/{id}of middleware.
      *
      * This forces non-global middleware to always be in the given order.
      *

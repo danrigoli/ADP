@@ -4,6 +4,7 @@ namespace App\Console;
 
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
+use App\Console\Commands\DeleteOrders;
 
 class Kernel extends ConsoleKernel
 {
@@ -13,7 +14,7 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        //
+        'App\Console\Commands\DeleteOrders'
     ];
 
     /**
@@ -24,11 +25,10 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->call(function(){
-            DB::table('orders')->delete();
-        })->weeklyOn(5, '4:00');
-    }
+        $schedule->command('orders:delete')->monthlyOn(26, '15:02')->timezone('America/Argentina/Buenos_Aires');
+        $schedule->command('users:deleteoid')->dailyAt('15:02')->timezone('America/Argentina/Buenos_Aires');
 
+    }
     /**
      * Register the commands for the application.
      *

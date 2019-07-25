@@ -3,4 +3,5 @@ $( document ).ready(function() {
     $('.side-nav').toggleClass("open");
     e.preventDefault();
    });
+
 });

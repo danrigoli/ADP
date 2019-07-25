@@ -19,6 +19,10 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/wunderman', 'WundermanController@index')->name('wunderman')->middleware('auth');
-Route::post('/order', 'WundermanController@order')->name('make-order')->middleware('auth');
-Route::get('/administrador', 'WundermanController@admin')->name('dashboard-admin');
+Route::get('/peisa', 'PeisaController@index')->name('peisa')->middleware('auth');
+Route::post('/order', 'PeisaController@order')->name('make-order')->middleware('auth');
+Route::get('/administrador', 'PeisaController@admin')->name('dashboard-admin')->middleware('admin');
+Route::get('/ticket-generator', 'PeisaController@generateTicket')->name('generate-ticket')->middleware('peisa.admin');
+Route::post('/ticket-create', 'PeisaController@createTicket')->name('create-ticket')->middleware('peisa.admin');
+
+Route::get('logout', 'Auth\LoginController@logout');
